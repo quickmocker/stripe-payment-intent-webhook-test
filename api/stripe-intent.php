@@ -2,14 +2,14 @@
 
 namespace api;
 
-require_once '../vendor/autoload.php';
-
-// error_reporting(E_ALL);
-// ini_set('display_errors', true);
-
 use api\extra\RequestHandler;
 use api\extra\StripeBase;
 use api\extra\DB;
+
+// error_reporting(E_ALL);
+// ini_set('display_errors', true);
+require_once '../vendor/autoload.php';
+
 
 new class
 {
@@ -18,9 +18,9 @@ new class
     public function __construct()
     {
         // Get and validate request input.
-        $requestHandler = new RequestHandler();
+        $requestHandler = new RequestHandler('post');
         $data = $requestHandler->getInput();
-        $requestHandler->validate($data);
+        // $requestHandler->validate($data);
 
         // Generate a random payment amount.
         if (empty($data['id'])) {

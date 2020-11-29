@@ -73,7 +73,9 @@ class DB
         $intent['updated_at'] = date('Y-m-d H:i:s');
         $updates = [];
         foreach ($intent as $param => $value) {
-            $updates[] = sprintf('%s = :%s', $param, $param);
+            if (in_array($param, $this->paymentIntentColumns)) {
+                $updates[] = sprintf('%s = :%s', $param, $param);
+            }
         }
         $updatesString = implode(',', $updates);
         $statement = $this->_pdo->prepare("UPDATE payment_intent SET $updatesString WHERE id = :id");

@@ -8,6 +8,13 @@ class RequestHandler
     const STATUS_OK = 200;
     const STATUS_ERR = 400;
 
+    public function __construct($method)
+    {
+        if ($method != strtolower($_SERVER['REQUEST_METHOD'])) {
+            $this->return('Incorrect method', self::STATUS_ERR);
+        }
+    }
+
     public function getInput()
     {
         $input = file_get_contents('php://input') ?: '{}';
@@ -21,7 +28,7 @@ class RequestHandler
 
         if ($code != self::STATUS_OK) {
             echo json_encode([
-                'error' => $data,
+                'message' => 'Error: ' . $data,
             ]);
             exit;
         }
@@ -31,11 +38,11 @@ class RequestHandler
 
     public function validate($data)
     {
-        if (empty($data['email'])) {
-            $this->return('Missing email', self::STATUS_ERR);
-        }
         if (empty($data['name'])) {
-            $this->return('Missing name', self::STATUS_ERR);
+            $this->return('Missing Name', self::STATUS_ERR);
+        }
+        if (empty($data['email'])) {
+            $this->return('Missing Email', self::STATUS_ERR);
         }
         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $this->return('Invalid email address', self::STATUS_ERR);
