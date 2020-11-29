@@ -1,0 +1,13 @@
+# Make sure your webhook endpoint responds 200 for OPTIONS http request.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} OPTIONS 
+    RewriteRule ^(.*)$ $1 [R=200,L,E=HTTP_ORIGIN:%{HTTP:ORIGIN}]]
+</IfModule>
+
+# Make sure to define CORS policy that allows requests from other origins.
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "*"
+    Header always set Access-Control-Allow-Headers "*"
+</IfModule>
