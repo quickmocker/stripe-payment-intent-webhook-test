@@ -7,16 +7,19 @@
 
     <link href="assets/style.css" rel="stylesheet" />
   </head>
-  <body onload="quickmockerInit()">
+  <body onload="quickmocker.init()">
     <div class="center">
       <img src="assets/stripe-quickmocker.png" alt="QuickMocker and Stripe" class="logo" />
       <h1>Stripe Payment Intent Sample</h1>
       <p>Complete Checkout</p>
-      <form class="card-container" autocomplete="off">
-        <input type="text" name="name" placeholder="Name" autocomplete="none" />
-        <input type="email" name="email" placeholder="Email" autocomplete="none" />
+      <form class="card-container" autocomplete="off" onsubmit="return quickmocker.submit();">
+        <input type="text" name="name" id="name" placeholder="Name" autocomplete="none" />
+        <input type="text" name="email" id="email" placeholder="Email" autocomplete="none" />
         <div id="card-element"></div>
-        <button type="submit">Submit</button>
+
+        <div id="message"></div>
+
+        <button type="submit" id="submit">Submit</button>
       </form>
     </div>
   </body>

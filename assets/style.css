@@ -53,3 +53,25 @@ button {
     cursor: pointer;
     margin-top: 10px;
 }
+button.loading {
+    background: #cccccc;
+}
+#message {
+    border: 1px solid #fff;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    min-height: 40px;
+    margin-top: 10px;
+    visibility: hidden;
+    font-size: 14px;
+    color: #fff;
+    font-weight: normal;
+}
+#message.error {
+    border-color: #df5522;
+    color: #df5522;
+}
+#message.show {
+    visibility: visible;
+}
