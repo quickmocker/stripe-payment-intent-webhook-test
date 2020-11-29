@@ -1,5 +1,5 @@
 {
-    "name": "quickmocker/stripe-intent",
+    "name": "quickmocker/quickmocker-stripe-payment-intent-webhook-sample",
     "description": "Sample app to create Stripe Payment Intent and intercept notification using webhook",
     "require": {
         "stripe/stripe-php": "^7.66"
