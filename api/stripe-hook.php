@@ -4,8 +4,10 @@ namespace api;
 
 use api\extra\DB;
 use api\extra\RequestHandler;
+use api\extra\StripeBase;
 use Stripe\Exception\SignatureVerificationException;
 use Stripe\Exception\UnexpectedValueException;
+use Stripe\Webhook;
 
 require_once '../vendor/autoload.php';
 
@@ -23,10 +25,10 @@ new class
         $signature_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
 
         try {
-            $event = \Stripe\Webhook::constructEvent(
+            $event = Webhook::constructEvent(
                 $payload,
                 $signature_header,
-                $this->signing_secret
+                StripeBase::getInstance()->signingSecret,
             );
         } catch (UnexpectedValueException $e) {
             $requestHandler->return('Stripe Invalid Payload', RequestHandler::STATUS_ERR);

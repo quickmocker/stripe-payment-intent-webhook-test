@@ -2,18 +2,33 @@
 
 namespace api\extra;
 
+use Exception;
 use Stripe\Customer;
 use Stripe\PaymentIntent;
 use Stripe\Stripe;
 
 class StripeBase
 {
-    // Replace with your own secret key.
-    public $stripeSecretKey = 'sk_test_51HrW5DBqxL3ZMOsUW7pcmeRQsFS4MctewnYTXY3WmIvQ4Xh7BWand5yDFlye9qFA8GUrs7VZOAstKH28uOG1Q50D00IZvoKURM';
+    static $instance;
+
+    public $signingSecret;
+
+    static function getInstance()
+    {
+        if (!self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
 
     public function __construct()
     {
-        Stripe::setApiKey($this->stripeSecretKey);
+        $config = require dirname(__DIR__) . '/config.php';
+        if (empty($config['stripe'])) {
+            throw new Exception('No Stripe Configuration Found.');
+        }
+        Stripe::setApiKey($config['stripe']['secretKey']);
+        $this->signingSecret = $config['stripe']['signingSecret'];
     }
 
     public function createOrUpdateIntent($data)

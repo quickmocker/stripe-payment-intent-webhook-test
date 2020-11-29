@@ -13,8 +13,6 @@ require_once '../vendor/autoload.php';
 
 new class
 {
-    public $stripe;
-
     public function __construct()
     {
         // Get and validate request input.
@@ -36,8 +34,7 @@ new class
             }
 
             // Create or update remote payment intent.
-            $this->stripe = new StripeBase();
-            $intent = $this->stripe->createOrUpdateIntent($data);
+            $intent = StripeBase::getInstance()->createOrUpdateIntent($data);
 
             // Store payment intent in the local database for further re-use.
             $data['id'] = $intent['id'];

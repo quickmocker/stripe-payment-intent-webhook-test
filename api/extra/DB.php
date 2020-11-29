@@ -2,6 +2,7 @@
 
 namespace api\extra;
 
+use Exception;
 use PDO;
 
 class DB
@@ -9,9 +10,6 @@ class DB
     static $instance;
 
     private $_pdo;
-    private $_dsn = 'mysql:dbname=test;host=127.0.0.1';
-    private $_user = 'root';
-    private $_password = '';
 
     private $paymentIntentColumns = [
         'id',
@@ -27,7 +25,11 @@ class DB
 
     public function __construct()
     {
-        $this->_pdo = new PDO($this->_dsn, $this->_user, $this->_password);
+        $config = require dirname(__DIR__) . '/config.php';
+        if (empty($config['db'])) {
+            throw new Exception('No DB Configuration Found.');
+        }
+        $this->_pdo = new PDO($config['db']['dsn'], $config['db']['user'], $config['db']['password']);
     }
 
     public function getPDO()
