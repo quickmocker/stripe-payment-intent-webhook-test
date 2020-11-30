@@ -25,7 +25,7 @@ class StripeBase
     {
         $config = require dirname(__DIR__) . '/config.php';
         if (empty($config['stripe'])) {
-            throw new Exception('No Stripe Configuration Found.');
+            throw new Exception('Stripe configuration not found.');
         }
         Stripe::setApiKey($config['stripe']['secretKey']);
         $this->signingSecret = $config['stripe']['signingSecret'];

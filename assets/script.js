@@ -4,9 +4,7 @@
   quickmocker.prototype.init = function () {
     this.response = {};
     // Update Stripe Public Key with your own.
-    this.stripe = Stripe(
-      "pk_test_51HrW5DBqxL3ZMOsUS4ygFTVQd6IqEcPYsKzs90iPtRN0ZrRkaWcCXUsheImj6B2wYjn1zUlWqHKFmHCRGSJrPUe700jMDdHThP"
-    );
+    this.stripe = Stripe(stripePublicKey);
     this.createStripeElements();
   };
 

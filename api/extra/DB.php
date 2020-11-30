@@ -27,7 +27,7 @@ class DB
     {
         $config = require dirname(__DIR__) . '/config.php';
         if (empty($config['db'])) {
-            throw new Exception('No DB Configuration Found.');
+            throw new Exception('DB configuration not found.');
         }
         $this->_pdo = new PDO($config['db']['dsn'], $config['db']['user'], $config['db']['password']);
     }
