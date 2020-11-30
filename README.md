@@ -27,7 +27,7 @@ Please note, this sample app is using following stack below, but your own applic
 * Click Set Local Forwarder and add your localhost URL (e.g. http://localhost). Please note, that if your localhost URL does not use HTTPS (SSL) protocol, you need to allow Insecure Content for QuickMocker site inside your browser. See this [article](https://experienceleague.adobe.com/docs/target/using/experiences/vec/troubleshoot-composer/mixed-content.html?lang=en#task_5448763B8DC941FD80F84041AEF0A14D) with guidance on how to do this. 
 
 
-## How it works?
+# How it works?
     
 After the app is installed locally and you can access it from your browser, enter the name, email and dummy credit card inside the form (get the list of all test credit cards numbers [here](https://stripe.com/docs/testing) or simply use this one `4000 0027 6000 3184`).
     
