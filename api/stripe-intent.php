@@ -18,7 +18,7 @@ new class
         // Get and validate request input.
         $requestHandler = new RequestHandler('post');
         $data = $requestHandler->getInput();
-        // $requestHandler->validate($data);
+        $requestHandler->validate($data);
 
         // Generate a random payment amount.
         if (empty($data['id'])) {
