@@ -7,8 +7,9 @@ This simple app will allow you to to see how to integrate Stripe Payment Intents
 
 Please note, this sample app is using following stack below, but your own application can use any other stack as long as it is served over a web server.
 
-* LAMP (WAMP or MAMP) stack with Apache, MySQL and PHP
+* LAMP (WAMP/MAMP) stack with Apache, MySQL and PHP
 * `mod_headers` and `mod_rewrite` for Apache (required for .htaccess file to allow CORS headers and OPTIONS method 200 response)
+* Composer (PHP CLI Package Manager)
 * `php-curl` and `php-mbstring` for PHP (required by Stripe SDK)
 
  
