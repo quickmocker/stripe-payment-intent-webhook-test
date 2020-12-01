@@ -48,8 +48,9 @@
     <h2>Requirements</h2>
     <p>Please note, this sample app is using following stack below, but your own application can use any other stack as long as it is served over a web server.</p>
     <ul>
-      <li>LAMP (WAMP or MAMP) stack with Apache, MySQL and PHP</li>
+      <li>LAMP (WAMP/MAMP) stack with Apache, MySQL and PHP</li>
       <li><em>mod_headers</em> and <em>mod_rewrite</em> for Apache (required for .htaccess file to allow CORS headers and OPTIONS method 200 response)</li>
+      <li>Composer (PHP CLI Package Manager)</li>
       <li><em>php-curl</em> and <em>php-mbstring</em> for PHP (required by Stripe SDK)</li>
     </ul>
 
@@ -63,7 +64,7 @@
       <li><a target="blank" href="https://dashboard.stripe.com/register">Create Stripe account</a>, get publishable and secret API keys inside the Developers section and add them to <em>api/config.php</em> file</li>
       <li><a href="https://quickmocker.com/register">Create QuickMocker account</a> and create a new project with any domain</li>
       <li>Open your QuickMocker's project and add new endpoint with POST HTTP method and URL path <em>api/stripe-hook.php</em></li>
-      <li>Copy the endpoint's URL and paste it inside Stripe when creating Webhhook Endpoint</li>
+      <li>Copy the endpoint's URL and paste it inside Stripe when creating Webhhook Endpoint (while creating webhook endpoint, select all Payment Intent events)</li>
       <li>Go back to QuickMocker and switch to Requests Log tab</li>
       <li>
         Click Set Local Forwarder and add your localhost URL (e.g. http://localhost). Please note, that if your localhost URL does not use HTTPS (SSL) protocol,
@@ -72,6 +73,26 @@
         with guidance on how to do this.
       </li>
     </ul>
+
+    <h2>How it works?</h2>
+
+    <p>
+      After the app is installed locally and you can access it from your browser, enter the name, email and dummy credit card inside the form
+      (get the list of all test credit cards numbers <a href="https://stripe.com/docs/testing">here</a> or simply use this one <em>4000 0027 6000 3184</em>).
+    </p>
+    <p>
+      When you fill in the form, hit the submit button. The app will send the AJAX request to its API endpoint (<em>api/stripe-intent.php</em>) in order
+      to create/update payment intent with provided user and name value (as for the payment amount, it will be generated randomly on the API side).
+      If payment intent was created successfully using Stripe SDK, the client secret code will be returned back to the app.
+      Then the client secret code is used in order to confirm card payment using Stripe JS SDK.
+    </p>
+    <p class="mb-5">
+      The payment intent status value (you may find it inside the MySQL DB) will be updated through the <em>api/stripe-hook.php</em> endpoint
+      with the help of Stripe webhook event (notification).
+      We will use QuickMocker's Local Forwarder feature in order to expose the <em>api/stripe-hook.php</em> endpoint from your local
+      environment to the world. During the webhook notification the request could be debugged using any debugging tool (e.g. XDebug) or else
+      you can peform debugging simply using response output which will be available inside QuickMocker's log record extra tab.
+    </p>
 
     <h2>P.S.</h2>
 
