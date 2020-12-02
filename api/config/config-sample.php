@@ -7,7 +7,7 @@ return [
         'password' => '',
     ],
     'stripe' => [
-        'publicKey' => '',
+        'publishableKey' => '',
         'secretKey' => '',
         'signingSecret' => '',
     ],

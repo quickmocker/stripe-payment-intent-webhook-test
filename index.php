@@ -16,7 +16,7 @@
       throw new Exception('Stripe configuration not found.');
     }
     ?>
-    var stripePublicKey = "<?= $config['stripe']['publicKey'] ?>";
+    var stripepublishableKey = "<?= $config['stripe']['publishableKey'] ?>";
   </script>
 </head>
 
