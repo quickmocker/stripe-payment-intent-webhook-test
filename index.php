@@ -63,7 +63,7 @@
       <li>Create new MySQL database, run <em>api/schema.sql</em> file to create database schema and define DB credentials in the <em>api/config/config.php</em></li>
       <li><a target="blank" href="https://dashboard.stripe.com/register">Create Stripe account</a>, get publishable and secret API keys inside the Developers section and add them to <em>api/config/config.php</em> file</li>
       <li><a href="https://quickmocker.com/register">Create QuickMocker account</a> and create a new project with any domain</li>
-      <li>Open your QuickMocker's project and add new endpoint with POST HTTP method and URL path <em>api/stripe-hook.php</em></li>
+      <li>Open your QuickMocker's project and add new endpoint with POST HTTP method and URL path <em>api/stripe-webhook.php</em></li>
       <li>Copy the endpoint's URL and paste it inside Stripe when creating Webhhook Endpoint (while creating webhook endpoint, select all Payment Intent events)</li>
       <li>Go back to QuickMocker and switch to Requests Log tab</li>
       <li>
@@ -87,9 +87,9 @@
       Then the client secret code is used in order to confirm card payment using Stripe JS SDK.
     </p>
     <p class="mb-5">
-      The payment intent status value (you may find it inside the MySQL DB) will be updated through the <em>api/stripe-hook.php</em> endpoint
+      The payment intent status value (you may find it inside the MySQL DB) will be updated through the <em>api/stripe-webhook.php</em> endpoint
       with the help of Stripe webhook event (notification).
-      We will use QuickMocker's Local Forwarder feature in order to expose the <em>api/stripe-hook.php</em> endpoint from your local
+      We will use QuickMocker's Local Forwarder feature in order to expose the <em>api/stripe-webhook.php</em> endpoint from your local
       environment to the world. During the webhook notification the request could be debugged using any debugging tool (e.g. XDebug) or else
       you can peform debugging simply using response output which will be available inside QuickMocker's log record extra tab.
     </p>
