@@ -1,6 +1,4 @@
- ![github-small](https://raw.githubusercontent.com/quickmocker/stripe-payment-intent-webhook-test/master/assets/stripe-quickmocker.png)
- 
- # DESCRIPTION
+# DESCRIPTION
 
 This simple app will allow you to to see how to integrate Stripe Payment Intents on your site and how to debug Stripe webhook notifications using [QuickMocker](https://quickmocker.com) (Online API Mocking Tool). Similar approach could be used for any other 3rd party integration during development and testing process on your local machine.
 
