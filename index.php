@@ -11,7 +11,7 @@
   <script type="text/javascript">
     <?php
     // Get Stripe Public Key to JS.
-    $config = require_once 'api/config.php';
+    $config = require_once 'api/config/config.php';
     if (empty($config)) {
       throw new Exception('Stripe configuration not found.');
     }
@@ -59,9 +59,9 @@
       <li>Clone repository <em>git clone https://github.com/quickmocker/stripe-payment-intent-webhook-test.git</em> or use <em>composer require quickmocker/stripe-payment-intent-webhook-test</em></li>
       <li>Change directory to project folder: <em>cd stripe-payment-intent-webhook-test</em></li>
       <li>Install dependencies: <em>composer install</em></li>
-      <li>Copy <em>api/config-sample.php</em> to <em>api/config.php</em></li>
-      <li>Create new MySQL database, run <em>api/schema.sql</em> file to create database schema and define DB credentials in the <em>api/config.php</em></li>
-      <li><a target="blank" href="https://dashboard.stripe.com/register">Create Stripe account</a>, get publishable and secret API keys inside the Developers section and add them to <em>api/config.php</em> file</li>
+      <li>Copy <em>api/config/config-sample.php</em> to <em>api/config/config.php</em></li>
+      <li>Create new MySQL database, run <em>api/schema.sql</em> file to create database schema and define DB credentials in the <em>api/config/config.php</em></li>
+      <li><a target="blank" href="https://dashboard.stripe.com/register">Create Stripe account</a>, get publishable and secret API keys inside the Developers section and add them to <em>api/config/config.php</em> file</li>
       <li><a href="https://quickmocker.com/register">Create QuickMocker account</a> and create a new project with any domain</li>
       <li>Open your QuickMocker's project and add new endpoint with POST HTTP method and URL path <em>api/stripe-hook.php</em></li>
       <li>Copy the endpoint's URL and paste it inside Stripe when creating Webhhook Endpoint (while creating webhook endpoint, select all Payment Intent events)</li>

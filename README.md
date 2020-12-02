@@ -20,9 +20,9 @@ Please note, this sample app is using following stack below, but your own applic
 * Clone repository `git clone https://github.com/quickmocker/stripe-payment-intent-webhook-test.git` or use `composer require quickmocker/stripe-payment-intent-webhook-test`
 * Change directory to project folder: `cd stripe-payment-intent-webhook-test`
 * Install dependencies: `composer install`
-* Copy `api/config-sample.php` to `api/config.php`
-* Create new MySQL database, run `api/schema.sql` file to create database schema and define DB credentials in the `api/config.php`
-* [Create Stripe account](https://dashboard.stripe.com/register) , get publishable and secret API keys inside the Developers section and add them to `api/config.php` file
+* Copy `api/config/config-sample.php` to `api/config/config.php`
+* Create new MySQL database, run `api/schema.sql` file to create database schema and define DB credentials in the `api/config/config.php`
+* [Create Stripe account](https://dashboard.stripe.com/register) , get publishable and secret API keys inside the Developers section and add them to `api/config/config.php` file
 * [Create QuickMocker account](https://quickmocker.com/register) and create a new project with any domain
 * Open your QuickMocker's project and add new endpoint with POST HTTP method and URL path _api/stripe-hook.php_
 * Copy the endpoint's URL and paste it inside Stripe when creating Webhhook Endpoint (while creating webhook endpoint, select all Payment Intent events)

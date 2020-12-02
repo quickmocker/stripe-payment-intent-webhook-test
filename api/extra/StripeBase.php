@@ -23,7 +23,7 @@ class StripeBase
 
     public function __construct()
     {
-        $config = require dirname(__DIR__) . '/config.php';
+        $config = require dirname(__DIR__) . '/config/config.php';
         if (empty($config['stripe'])) {
             throw new Exception('Stripe configuration not found.');
         }

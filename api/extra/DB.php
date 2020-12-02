@@ -25,7 +25,7 @@ class DB
 
     public function __construct()
     {
-        $config = require dirname(__DIR__) . '/config.php';
+        $config = require dirname(__DIR__) . '/config/config.php';
         if (empty($config['db'])) {
             throw new Exception('DB configuration not found.');
         }
