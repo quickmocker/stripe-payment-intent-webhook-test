@@ -15,7 +15,7 @@ Please note, this sample app is using following stack below, but your own applic
  
 # INSTALLATION STEPS
 
-* Clone repository `git clone https://github.com/quickmocker/stripe-payment-intent-webhook-test.git` or use `composer require quickmocker/stripe-payment-intent-webhook-test`
+* Clone repository `git clone https://github.com/quickmocker/stripe-payment-intent-webhook-test.git`
 * Change directory to project folder: `cd stripe-payment-intent-webhook-test`
 * Install dependencies: `composer install`
 * Copy `api/config/config-sample.php` to `api/config/config.php`
