@@ -30,10 +30,10 @@ class RequestHandler
             echo json_encode([
                 'message' => 'Error: ' . $data,
             ]);
-            exit;
+        } else {
+            echo json_encode($data);
         }
-        echo json_encode($data);
-        exit;
+        exit();
     }
 
     public function validate($data)

@@ -34,11 +34,11 @@ class StripeBase
     public function createOrUpdateIntent($data)
     {
         if (!empty($data['customer_id'])) {
-            $data['customer'] = $this->getCustomer($data['customer_id']);
+            $data['customer'] = Customer::retrieve($data['customer_id']);
         }
 
         if (!empty($data['email']) && empty($data['customer_id'])) {
-            $data['customer'] = $this->createCustomer([
+            $data['customer'] = Customer::create([
                 'email' => $data['email'],
                 'name' => !empty($data['name']) ? $data['name'] : '',
             ]);
@@ -54,15 +54,5 @@ class StripeBase
         } else {
             return PaymentIntent::update($data['id'], $intentData);
         }
-    }
-
-    public function getCustomer($id)
-    {
-        return Customer::retrieve($id);
-    }
-
-    public function createCustomer($data)
-    {
-        return Customer::create($data);
     }
 }
