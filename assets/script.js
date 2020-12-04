@@ -44,6 +44,7 @@
               );
             } else {
               _this.showMessage("Payment completed in Stripe.");
+              this.response = {};
             }
           });
       }
