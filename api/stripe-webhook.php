@@ -5,6 +5,7 @@ namespace api;
 use api\extra\DB;
 use api\extra\RequestHandler;
 use api\extra\StripeBase;
+use Exception;
 use Stripe\Exception\SignatureVerificationException;
 use Stripe\Exception\UnexpectedValueException;
 use Stripe\Webhook;
@@ -30,17 +31,18 @@ new class
                 $signature_header,
                 StripeBase::getInstance()->signingSecret,
             );
+            $intent = $event->data->object;
+            DB::getInstance()->updateIntent([
+                'id' => $intent->id,
+                'amount' => $intent->amount,
+                'status' => $intent->status,
+            ]);
         } catch (UnexpectedValueException $e) {
             $requestHandler->return('Stripe Invalid Payload', RequestHandler::STATUS_ERR);
         } catch (SignatureVerificationException $e) {
             $requestHandler->return('Stripe Invalid Signature', RequestHandler::STATUS_ERR);
+        } catch (Exception $e) {
+            $requestHandler->return('Stripe Error: ' . $e->getMessage(), RequestHandler::STATUS_ERR);
         }
-
-        $intent = $event->data->object;
-        DB::getInstance()->updateIntent([
-            'id' => $intent->id,
-            'amount' => $intent->amount,
-            'status' => $intent->status,
-        ]);
     }
 };
