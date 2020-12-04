@@ -48,7 +48,7 @@ new class
                 'id' => $intent['id'],
                 'client_secret' => $intent['client_secret'],
                 'amount' => $intent['amount'],
-            ], RequestHandler::STATUS_OK);
+            ]);
         } catch (\Exception $e) {
             $requestHandler->return('Stripe: ' . $e->getMessage(), RequestHandler::STATUS_ERR);
         }

@@ -37,6 +37,9 @@ new class
                 'amount' => $intent->amount,
                 'status' => $intent->status,
             ]);
+            $requestHandler->return([
+                'result' => 'Webhook Signal Successfully Processed',
+            ]);
         } catch (UnexpectedValueException $e) {
             $requestHandler->return('Stripe Invalid Payload', RequestHandler::STATUS_ERR);
         } catch (SignatureVerificationException $e) {

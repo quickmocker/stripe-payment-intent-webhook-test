@@ -21,7 +21,7 @@ class RequestHandler
         return json_decode($input, true);
     }
 
-    public function return($data, $code)
+    public function return($data, $code = self::STATUS_OK)
     {
         header('Content-Type: application/json');
         http_response_code($code);
