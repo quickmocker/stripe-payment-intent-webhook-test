@@ -23,7 +23,8 @@ Please note, this sample app is using following stack below, but your own applic
 * [Create Stripe account](https://dashboard.stripe.com/register) , get publishable and secret API keys inside the Developers section and add them to `api/config/config.php` file
 * [Create QuickMocker account](https://quickmocker.com/register) and create a new project with any domain
 * Open your QuickMocker's project and add new endpoint with POST HTTP method and URL path `api/stripe-webhook.php`
-* Copy the endpoint's URL and paste it inside Stripe when creating Webhhook Endpoint (while creating webhook endpoint, select all Payment Intent events)
+* Copy the endpoint's URL and paste it inside Stripe when creating Webhhook Endpoint (while creating webhook endpoint, select all Payment Intent events).
+* Copy "Signing Secret" and paste inside the `api/config/config.php` file. This is required to confirm that the remote request from Stripe is not spoofed.
 * Go back to QuickMocker and switch to Requests Log tab
 * Click Set Local Forwarder and add your localhost URL (e.g. http://localhost). Please note, that if your localhost URL does not use HTTPS (SSL) protocol, you need to allow Insecure Content for QuickMocker site inside your browser. See this [article](https://experienceleague.adobe.com/docs/target/using/experiences/vec/troubleshoot-composer/mixed-content.html?lang=en#task_5448763B8DC941FD80F84041AEF0A14D) with guidance on how to do this. 
 

@@ -65,6 +65,7 @@
       <li><a href="https://quickmocker.com/register">Create QuickMocker account</a> and create a new project with any domain</li>
       <li>Open your QuickMocker's project and add new endpoint with POST HTTP method and URL path <em>api/stripe-webhook.php</em></li>
       <li>Copy the endpoint's URL and paste it inside Stripe when creating Webhhook Endpoint (while creating webhook endpoint, select all Payment Intent events)</li>
+      <li>Copy "Signing Secret" and paste inside the <em>api/config/config.php</em> file. This is required to confirm that the remote request from Stripe is not spoofed.</li>
       <li>Go back to QuickMocker and switch to Requests Log tab</li>
       <li>
         Click Set Local Forwarder and add your localhost URL (e.g. http://localhost). Please note, that if your localhost URL does not use HTTPS (SSL) protocol,
