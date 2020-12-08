@@ -95,9 +95,9 @@
       you can peform debugging simply using response output which will be available inside QuickMocker's log record extra tab.
     </p>
 
-    <h2>P.S.</h2>
+    <h2>Video Guide</h2>
 
-    <p>We are currently preparing a short video that follows all the instructions to demonstrate QuickMocker's Local Forwarder usage. It will be added here soon.</p>
+    <p>View all the installation steps in the video guide here: <a href="https://youtu.be/nJpfChZP_rI" target="_blank">https://youtu.be/nJpfChZP_rI</a></p>
   </div>
 </body>
 

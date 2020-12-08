@@ -36,8 +36,7 @@ After the app is installed locally and you can access it from your browser, ente
 When you fill in the form, hit the submit button. The app will send the AJAX request to its API endpoint (api/stripe-intent.php) in order to create/update payment intent with provided user and name value (as for the payment amount, it will be generated randomly on the API side). If payment intent was created successfully using Stripe SDK, the client secret code will be returned back to the app. Then the client secret code is used in order to confirm card payment using Stripe JS SDK.
     
 The payment intent status value (you may find it inside the MySQL DB) will be updated through the api/stripe-webhook.php endpoint with the help of Stripe webhook event (notification). We will use QuickMocker's Local Forwarder feature in order to expose the api/stripe-webhook.php endpoint from your local environment to the world. During the webhook notification the request could be debugged using any debugging tool (e.g. XDebug) or else you can peform debugging simply using response output which will be available inside QuickMocker's log record extra tab.
-    
- 
-# P.S.
 
-We are currently preparing a short video that follows all the instructions to demonstrate QuickMocker's Local Forwarder usage. It will be added here soon.
+# Video Guide
+
+View all the installation steps in the video guide here: [https://youtu.be/nJpfChZP_rI](https://youtu.be/nJpfChZP_rI) 
